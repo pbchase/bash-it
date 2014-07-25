@@ -39,13 +39,13 @@ pickfrom ()
     head -n $n $file | tail -1
 }
 
-pass ()
+mkpass ()
 {
     about 'generates random password from dictionary words'
     param 'optional integer length'
     param 'if unset, defaults to 4'
-    example '$ pass'
-    example '$ pass 6'
+    example '$ mkpass'
+    example '$ mkpass 6'
     group 'base'
     local i pass length=${1:-4}
     pass=$(echo $(for i in $(eval echo "{1..$length}"); do pickfrom /usr/share/dict/words; done))
